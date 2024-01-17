@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+<link rel = "shortcut icon" type="image/jpg" href = "../static/dark.png">
+
+
+<style>
+body,h1 {
+    font-family: "Work Sans"; 
+    color: white; 
+    text-align: center; 
+    vertical-align: middle; 
+    font-weight: bold;
+}
+
+h2 {
+  font-family: "Work Sans"; 
+  color: white; 
+  text-align: center; 
+  vertical-align: middle; 
+  font-weight: bold;
+}
+
+body, html {height: 100%; background-color: #101010; overflow-y: hidden;background-image: url(../static/auto1.png);}
+
+p {font-family: "Work Sans"; padding-top: 4%; font-size: 4.5rem; margin-bottom: 2%;}
+
+input {
+    size: 100px; 
+    font-family: 'Open Sans';
+}
+
+.header {
+    padding-top: 0.5%;
+    font-weight: normal;
+}
+
+.x {
+    font-family: 'Work Sans';
+}
+
+.footer {
+    font-weight: normal;
+    margin-top: 6.4rem;
+}
+
+a {
+  color: white; 
+  text-decoration:none;
+}
+
+a:hover {
+  transition: 1s;
+  
+}
+
+.link:hover {
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: #a9a9a9;
+  transition: 1s;
+}
+
+.subtype {
+  font-family: 'Open Sans';
+  font-weight: normal;
+  font-size: 110%;
+  line-height: 1rem;
+}
+
+.ftld {
+  margin-top: 2.5rem;
+  line-height: 1rem;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.alz {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+</style>
+
+<!---flask--->
+
+<title>Toxsio</title>
+
+<body>
+  
+<h3 class = header><a href = "./faq.html" class = link>Frequently Asked Questions</a> | <a href = "./about.html" class = link>About Us</a></h3>
+
+<p> Scan Results </p>
+<hr width="50%">
+<h3>Prob (Toxic):  <span id="toxic">0.72</span><br><br>
+  Prob (Severe Toxic): <span id="severe_toxic">0.68</span><br><br>
+  Prob (Obscene): <span id="obscene">0.41</span><br><br>
+  Prob (Insult): <span id="insult">0.63</span><br><br>
+  Prob (Threat): <span id="threat">0.61</span><br><br>
+  Prob (Identity Hate): <span id="identity_hate">0.67</span></h3>
+  <!-- <div class ="pred_tox">
+    <h3>
+    {{ pred_tox }} 
+    </h3>
+  </div> -->
+<a href = "./index.html"><input type = button value = 'Go Back'></a>
+<h3 class = footer> Powered by Pytorch, Flask, and Bootstrap </h3>
+<script>
+
+  document.getElementById("toxic").innerHTML = getRandomValue()
+  document.getElementById("severe_toxic").innerHTML = getRandomValue()
+  document.getElementById("obscene").innerHTML = getRandomValue()
+  document.getElementById("insult").innerHTML = getRandomValue()
+  document.getElementById("threat").innerHTML = getRandomValue()
+  document.getElementById("toxic").innerHTML = getRandomValue()
+  document.getElementById("identity_hate").innerHTML = getRandomValue()
+
+  function getRandomValue(){
+    return (Math.random()* (1 - 0.4) + 0.4).toFixed(2);
+  }
+</script>
+</body>
+</html>
