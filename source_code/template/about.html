@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href = "https://fonts.googleapis.com/css2?family=Work+Sans&display=swap" rel="stylesheet">
+<link href = "https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+<link rel = "shortcut icon" type="image/jpg" href = "../static/dark.png">
+<script src="https://kit.fontawesome.com/5e4239a5eb.js" crossorigin="anonymous"></script>
+
+<style>
+body,h1 {
+    font-family: "Work Sans"; 
+    color: white; 
+    text-align: center; 
+    vertical-align: middle; 
+    font-weight: bold;
+}
+
+body, html {height: 100%; background-color: #101010; background-image: url(../static/2.jpeg);}
+
+.x1 {font-family: "Work Sans"; padding-top: 0%; font-size: 40px; margin-bottom: 1.2%;}
+
+.x2 {font-family: "Work Sans"; font-size: 18px; text-align: center; padding-top: 0px}
+
+.x3 {font-family: "Open Sans"; font-size: 14px; text-align: center; font-weight: normal;}
+
+input {
+    size: 100px; 
+    font-family: 'Work Sans';
+}
+
+.header {
+    padding-top: 0.5%;
+    font-weight: normal;
+}
+
+.x {
+    font-family: 'Work Sans';
+}
+
+.footer {
+    padding-top: 10%; 
+    font-weight: normal;
+}
+
+a {
+  color: white; 
+  text-decoration:none;
+}
+
+a:hover {
+  transition: 1s;
+}
+
+.link:hover {
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: #a9a9a9;
+  transition: 1s;
+  
+}
+
+.link1 {
+    border-bottom: 1px solid white;
+}
+
+.link1:hover {
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: #a9a9a9;
+  transition: 1s;
+}
+
+.our_team {
+    display: flex;
+    width: auto;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.team_member {
+    width: 242px;
+    margin: 15px;
+    background-color: #F8F0E3;
+    color: black;
+    border-radius: 20px;
+    padding: 20px 10px;
+}
+
+.member_img {
+    max-width: 180px;
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+    background: #F8F0E3;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 50%;
+}
+
+img {
+    margin: 0 auto;
+    max-width: 200px;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.social_media {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 95%;
+    height: 95%;
+    background: rgba(0, 0, 0, 0.65);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.6s ease;
+    transform: scale(0);
+}
+
+.member_img:hover .social_media{
+    transform: scale(1)
+}
+
+.social_media .item {
+    margin: 0 10px;
+}
+
+.fab, .fas {
+    font-size: 25px;
+    color: #F8F0E3
+}
+
+.fab:hover, .fas:hover {
+    color: #a9a9a9;
+    transition: all 0.4s ease;
+}
+
+</style>
+
+<!---- Flask part -->
+
+<title> Toxsio </title>
+
+<body>
+<h3 class = header><a href = "{{ url_for ('index') }}" class = link>Home</a> | <a href = "{{ url_for ('faq') }}" class = link>Frequently Asked Questions</a></h3>
+
+<p class = x1> Our Team </p>
+
+<div class = "our_team">
+  
+    
+    <div class = "team_member">
+        <div class = "member_img">
+          <img src = "../static/kartik.png">
+          <div class = "social_media">
+            <div class = "item"><a href = "mailto:kartikeysharmagor@gmail.com" target = "_blank"><i class="fas fa-envelope"></i></a></div>
+            <div class = "item"><a href = "https://www.linkedin.com/in/harshit-sharma-5a171b1a7/" target = "_blank"><i class="fab fa-linkedin"></i></a></div>
+          </div>
+        </div>
+          <p class = "x2"> Kartikey Sharma </p>
+          <p class = "x3">
+            Kartikey is a final year computer science student at PIET India. 
+            His research interests include computational nlp and linguistics 
+            In his free time, he do cycling, and studies political philosophy. 
+          </p>      
+    </div>
+
+    <div class = "team_member">
+        <div class = "member_img">
+          <img src = "../static/pant.jpeg">
+          <div class = "social_media">
+            <div class = "item"><a href = "mailto:hitensam78@gmail.com" target = "_blank"><i class="fas fa-envelope"></i></a></div>
+            <div class = "item"><a href = "https://www.linkedin.com/in/hitensamalia" target = "_blank"><i class="fab fa-linkedin"></i></a></div>
+            
+          </div>
+        </div>
+          <p class = "x2"> Hiten Samalia </p>
+          <p class = "x3">
+            Hiten Samlia is a final year computer science student at PIET India.
+            His interest includes Predication and analysis of stocks and currently working on Fintech technology. 
+            Passionate about financial tactics to sustainably grow money.
+          </p>      
+    </div>
+
+    <div class = "team_member">
+        <div class = "member_img">
+          <img src = "../static/anuj.png">
+          <div class = "social_media">
+            <div class = "item"><a href = "mailto:himanshi19csu123@ncuindia.edu" target = "_blank"><i class="fas fa-envelope"></i></a></div>
+            <div class = "item"><a href = "https://in.linkedin.com/in/himanshi-tanwar-a647651b9?trk=public_profile_samename-profile" target = "_blank"><i class="fab fa-linkedin"></i></a></div>
+      
+          </div>
+        </div>
+          <p class = "x2"> Anuj Dixit </p>
+          <p class = "x3">
+            Anuj Dixit is a final year computer science student at PIET India.
+            His passion lies in Managing teams & Machine Learning  
+            In his free time he enjoys coding in python. 
+          </p>      
+    </div>
+
+    <div class = "team_member">
+        <div class = "member_img">
+          <img src = "../static/anuj.png">
+          <div class = "social_media">
+            <div class = "item"><a href = "mailto:himanshi19csu123@ncuindia.edu" target = "_blank"><i class="fas fa-envelope"></i></a></div>
+            <div class = "item"><a href = "https://in.linkedin.com/in/himanshi-tanwar-a647651b9?trk=public_profile_samename-profile" target = "_blank"><i class="fab fa-linkedin"></i></a></div>
+      
+          </div>
+        </div>
+          <p class = "x2"> Uday Palecha </p>
+          <p class = "x3">
+            Uday Palecha is a final year computer science student at PIET India.
+            His passion lies in Managing teams & Machine Learning  
+            In his free time he enjoys coding in python. 
+          </p>      
+    </div>
+    
+     
+    <p class = x1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Our Mentors <br></p>
+    
+       
+
+<div class = "our_team">
+ 
+    <div class = "team_member">
+        <div class = "member_img">
+          <img src = "../static/puneetsir.jpeg">
+          <div class = "social_media">
+            <div class = "item"><a href = "mailto:puneet.cse@piet.co.in" target = "_blank"><i class="fas fa-envelope"></i></a></div>
+            <div class = "item"><a href = "https://in.linkedin.com/in/vaishali-babbar" target = "_blank"><i class="fab fa-linkedin"></i></a></div>
+          </div>
+        </div>
+          <p class = "x2"> SC Gupta </p>
+          <p class = "x3">
+             Professor(HOD)
+
+        </p>      
+      </div>
+   
+  
+
+</div>
+
+</body>
+</html>

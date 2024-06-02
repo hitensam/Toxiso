@@ -4,52 +4,53 @@ import pickle
 import numpy as np
 import os
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder='template')
 
 # Load the TF-IDF vocabulary specific to the category
-path = os.path.dirname(__file__)
-toxic_vect = path + "/toxic_vect.pkl"
-with open(toxic_vect, "rb") as f:
+dirName = os.path.dirname(os.path.realpath(__file__))
+# Load the TF-IDF vocabulary specific to the category
+with open(os.path.join(dirName, "toxic_vect.pkl"), "rb") as f:
     tox = pickle.load(f)
 
-with open(f"{path}/severe_toxic_vect.pkl", "rb") as f:
+with open(os.path.join(dirName, "severe_toxic_vect.pkl"), "rb") as f:
     sev = pickle.load(f)
 
-with open(f"{path}/obscene_vect.pkl", "rb") as f:
+with open(os.path.join(dirName, "obscene_vect.pkl"), "rb") as f:
     obs = pickle.load(f)
 
-with open(f"{path}/insult_vect.pkl", "rb") as f:
+with open(os.path.join(dirName, "insult_vect.pkl"), "rb") as f:
     ins = pickle.load(f)
 
-with open(f"{path}/threat_vect.pkl", "rb") as f:
+with open(os.path.join(dirName, "threat_vect.pkl"), "rb") as f:
     thr = pickle.load(f)
 
-with open(f"{path}/identity_hate_vect.pkl", "rb") as f:
+with open(os.path.join(dirName, "identity_hate_vect.pkl"), "rb") as f:
     ide = pickle.load(f)
 
 # Load the pickled RDF models
-with open(f"{path}/toxic_model.pkl", "rb") as f:
+with open(os.path.join(dirName, "toxic_model.pkl"), "rb") as f:
     tox_model = pickle.load(f)
 
-with open(f"{path}/severe_toxic_model.pkl", "rb") as f:
+with open(os.path.join(dirName, "severe_toxic_model.pkl"), "rb") as f:
     sev_model = pickle.load(f)
 
-with open(f"{path}/obscene_model.pkl", "rb") as f:
+with open(os.path.join(dirName, "obscene_model.pkl"), "rb") as f:
     obs_model  = pickle.load(f)
 
-with open(f"{path}/insult_model.pkl", "rb") as f:
+with open(os.path.join(dirName, "insult_model.pkl"), "rb") as f:
     ins_model  = pickle.load(f)
 
-with open(f"{path}/threat_model.pkl", "rb") as f:
+with open(os.path.join(dirName, "threat_model.pkl"), "rb") as f:
     thr_model  = pickle.load(f)
 
-with open(f"{path}/identity_hate_model.pkl", "rb") as f:
+with open(os.path.join(dirName, "identity_hate_model.pkl"), "rb") as f:
     ide_model  = pickle.load(f)
+
 
 # Render the HTML file for the home page
 @app.route("/")
-def home():
-    return render_template(f'{path}/index_toxic.html')
+def index():
+    return render_template("index_toxic.html")
 
 @app.route("/predict", methods=['POST'])
 def predict():
@@ -97,9 +98,9 @@ def predict():
                             pred_thr = 'Prob (Threat): {}'.format(out_thr),
                             pred_ide = 'Prob (Identity Hate): {}'.format(out_ide)
                             )
-@app.route('/')
-def index():
-    return render_template('index.html')
+# @app.route('/')
+# def index():
+#     return render_template('templates/index.html')
 @app.route('/result/')
 def result():
     return render_template('result.html')
